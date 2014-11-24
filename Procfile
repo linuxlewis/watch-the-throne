@@ -1,0 +1,1 @@
+web: gunicorn tesselapi.wsgi --log-file -
