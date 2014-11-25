@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from throne.models import Bathroom
+
+@admin.register(Bathroom)
+class BathroomAdmin(admin.ModelAdmin):
+    pass

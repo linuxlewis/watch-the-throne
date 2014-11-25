@@ -11,7 +11,6 @@ class Device(models.Model):
 class EnvironmentEvent(models.Model):
 
     TYPES = Choices('lights-on', 'lights-off', 'sound-on', 'sound-off')
-    created_on = models.DateTimeField(auto_now_add=True, default=datetime.now())
+    created_on = models.DateTimeField(auto_now_add=True)
     device = models.ForeignKey(Device, db_column='other_device_id')
-    #device_id = models.CharField(max_length=36, null=False, default='some-value')
     event_type = models.CharField(choices=TYPES, max_length=200)

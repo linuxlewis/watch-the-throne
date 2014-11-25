@@ -6,11 +6,13 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from events.views import EnvironmentEventViewSet
+from throne.views import BathroomViewSet
 
 
 
 router = routers.SimpleRouter()
 router.register(r'events', EnvironmentEventViewSet)
+router.register(r'bathrooms', BathroomViewSet)
 
 
 urlpatterns = patterns('',
