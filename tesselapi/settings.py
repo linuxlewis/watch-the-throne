@@ -92,10 +92,13 @@ STATICFILES_DIRS = (
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config(default='postgresql://postgres@localhost:5432/tessel')
+DATABASES['default'] = dj_database_url.config(default='postgresql://postgres@localhost:5432/tessel')
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
+
+TWILIO_TOKEN = '652139153deed6567f171b71df72ae1a'
+TWILIO_ACCT = 'AC2fd68245c73d72de327d1d04450dfa46'

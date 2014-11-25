@@ -1,11 +1,15 @@
 from datetime import timedelta
 
+from mock import patch
+
+from rest_framework.test import APITestCase
+
 from django.test import TestCase
 
 # Create your tests here.
 
 from events.models import Device, EnvironmentEvent
-from throne.models import Bathroom
+from throne.models import Bathroom, BathroomAlert
 
 
 class BathroomTestCase(TestCase):
@@ -39,3 +43,22 @@ class BathroomTestCase(TestCase):
         EnvironmentEvent.objects.create(event_type='lights-on', device=self.bathroom.device)
         EnvironmentEvent.objects.create(event_type='lights-off', device=self.bathroom.device)
         self.assertTrue(self.bathroom.cool_down)
+
+
+class BathroomAlertTestCase(TestCase):
+
+    def setUp(self):
+        # make a device
+        d = Device.objects.create(device_guid='some-lengthy-text')
+        # make a bathroom
+        self.bathroom = Bathroom.objects.create(name='Test Room', device=d)
+
+    @patch.object(BathroomAlert, 'send_sms_alert')
+    def test_signal(self, mock_method):
+        # make an alert
+        BathroomAlert.objects.create(number='1112223333', bathroom=self.bathroom)
+        # trigger the alert
+        EnvironmentEvent.objects.create(event_type='lights-off', device=self.bathroom.device)
+        self.assertTrue(mock_method.called)
+        self.assertEqual(BathroomAlert.objects.all().count(), 0)
+

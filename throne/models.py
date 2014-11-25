@@ -1,7 +1,10 @@
 import os
 
+from twilio.rest import TwilioRestClient
+
 from django.db import models
 from django.db.models import Q
+from django.conf import settings
 
 from tesselapi.settings import BASE_DIR
 
@@ -47,3 +50,14 @@ class Bathroom(models.Model):
         start_event = last_5_events.pop(0)
 
         return end_event.created_on - start_event.created_on
+
+
+class BathroomAlert(models.Model):
+
+    twilio = TwilioRestClient(settings.TWILIO_ACCT, settings.TWILIO_TOKEN)
+
+    bathroom = models.ForeignKey(Bathroom)
+    number = models.CharField(max_length=10)
+
+    def send_sms_alert(self):
+        message = self.twilio.messages.create(to="+1" + self.number, from_="+12622870731", body="Your throne is ready.")
