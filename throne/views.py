@@ -7,8 +7,14 @@ from throne.models import Bathroom, BathroomAlert
 
 class BathroomSerializer(serializers.ModelSerializer):
 
+    available = serializers.Field(source='available')
+    last_cycle_time = serializers.Field(source='last_cycle_time')
+    cool_down = serializers.Field(source='cool_down')
+
     class Meta:
         model = Bathroom
+        fields = ('name', 'picture', 'device', 'available', 'last_cycle_time', 'cool_down')
+
 
 class BathroomAlertSerializer(serializers.ModelSerializer):
 

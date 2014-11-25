@@ -62,3 +62,20 @@ class BathroomAlertTestCase(TestCase):
         self.assertTrue(mock_method.called)
         self.assertEqual(BathroomAlert.objects.all().count(), 0)
 
+
+class BathroomAPITestCase(APITestCase):
+
+    def setUp(self):
+        # make a device
+        d = Device.objects.create(device_guid='some-lengthy-text')
+        # make a bathroom
+        self.bathroom = Bathroom.objects.create(name='Test Room', device=d)
+        EnvironmentEvent.objects.create(event_type='lights-off', device=self.bathroom.device)
+        EnvironmentEvent.objects.create(event_type='lights-on', device=self.bathroom.device)
+        EnvironmentEvent.objects.create(event_type='lights-off', device=self.bathroom.device)
+
+    def test_get_bathroom(self):
+        response = self.client.get('/bathrooms/{}/'.format(str(self.bathroom.id)))
+        assert 'available' in response.data
+        assert 'last_cycle_time' in response.data
+        assert 'cool_down' in response.data
