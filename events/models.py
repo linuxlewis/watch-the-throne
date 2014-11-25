@@ -5,7 +5,7 @@ from django.db import models
 
 
 class Device(models.Model):
-    device_guid = models.CharField(max_length=36)
+    device_guid = models.CharField(max_length=36, unique=True)
 
 
 class EnvironmentEvent(models.Model):
