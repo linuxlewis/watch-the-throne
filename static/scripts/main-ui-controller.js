@@ -1,4 +1,4 @@
-angular.module('throne').controller('MainUiController', ['$scope', 'BathroomService', 'BathroomModel', '$timeout',
+angular.module('throne').controller('MainUiController', ['$scope', 'BathroomService', 'BathroomModel', '$interval',
 function($scope, BathroomService, BathroomModel, $timeout) {
     var pollBathrooms = function() {
         BathroomService.getAllBathrooms()
@@ -8,5 +8,5 @@ function($scope, BathroomService, BathroomModel, $timeout) {
     };
 
     pollBathrooms();
-    $timeout(pollBathrooms, 3000);
+    $interval(pollBathrooms, 3000);
 }]);
