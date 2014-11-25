@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="throne">
+<head>
+    <title>Watch the Throne</title>
+    <meta name="viewport" content="initial-scale=1">
+    <link rel="stylesheet" href="{{ STATIC_URL }}styles/reset.css" type="text/css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}styles/app.css" type="text/css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}styles/bathroom-tile.css" type="text/css"/>
+</head>
+<body ng-controller="MainUiController">
+    <div class="header bottom-border">
+        <span class="header-text max-width-container">Watch the Throne</span>
+    </div>
+    <div class="max-width-container side-borders bottom-border scrollable-container">
+        <bathroom-tile ng-repeat="bathroom in bathrooms"></bathroom-tile>
+    </div>
+
+    <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+    <script type="application/javascript">
+        angular.module('ThroneConfig', [])
+            .value('bathroomPicRoot', '{{ bathroom_pic_location }}')
+    </script>
+    <script type="application/javascript" src="{{ STATIC_URL }}/scripts/app.js"></script>
+    <script type="application/javascript" src="{{ STATIC_URL }}/scripts/bathrooms/bathroom-service.js"></script>
+    <script type="application/javascript" src="{{ STATIC_URL }}/scripts/bathrooms/bathroom-model.js"></script>
+    <script type="application/javascript" src="{{ STATIC_URL }}/scripts/main-ui-controller.js"></script>
+    <script type="application/javascript" src="{{ STATIC_URL }}/scripts/bathrooms/bathroom-tile-dir.js"></script>
+    <script type="application/javascript" src="{{ STATIC_URL }}/scripts/phone-number-dir.js"></script>
+</body>
+</html>

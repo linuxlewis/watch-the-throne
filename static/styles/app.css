@@ -1,0 +1,169 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  height: 100%;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+/*Colors*/
+
+.text-black {
+    color: #333;
+}
+
+.text-charcoal {
+    color: #777;
+}
+
+.text-dark-gray {
+    color: #828282;
+}
+
+.text-gray {
+    color: #929292;
+}
+
+.text-light-gray {
+    color: #c5c5c5;
+}
+
+.text-cream {
+    color: #d2d2d2;
+}
+
+.text-red {
+    color: #dc5035;
+}
+
+a.text-charcoal {
+    color: #777;
+}
+
+a.text-charcoal:hover,
+a.text-charcoal:active {
+    color: #333;
+}
+
+a.text-gray,
+a.text-gray:hover,
+a.text-gray:active {
+    color: #929292 !important;
+}
+
+.text-blue,
+a.text-blue,
+a.text-blue:hover,
+a.text-blue:active {
+    color: #5296b9;
+}
+
+.text-white,
+.text-white:hover,
+a.text-white,
+a.text-white:hover,
+a.text-white:active {
+    color: #ffffff;
+}
+
+.text-large {
+    font-size: 20px;
+    line-height: 100px;
+}
+
+/* Other */
+.text-center {
+    text-align: center;
+}
+
+.text-allcaps {
+    text-transform: uppercase;
+}
+
+.text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+}
+
+
+/* Main UI page */
+
+.max-width-container {
+    max-width: 1024px;
+    margin: 0 auto;
+    width: 100%;
+    display: block;
+}
+
+.side-borders {
+    border-left : 1px solid #e5e5e5;
+    border-right : 1px solid #e5e5e5;
+}
+
+.bottom-border {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.top-border {
+    border-top: 1px solid #e5e5e5;
+}
+
+.header {
+    padding: 20px 0;
+}
+
+.scrollable-container {
+    overflow-y: scroll;
+    padding: 0 40px;
+    height: calc(100% - 57px);
+    background-color: #ffffff;
+}
+
+/* Grid */
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.width-40, .width-60, .width-100 {
+    display: inline-block;
+}
+
+.width-40 {
+    display: inline-block;
+    width: 40%;
+}
+
+.width-55 {
+    display: inline-block;
+    width: 55%;
+}
+
+.width-100 {
+    display: inline-block;
+    width: 100%;
+}

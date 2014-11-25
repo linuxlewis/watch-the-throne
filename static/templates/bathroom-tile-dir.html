@@ -1,0 +1,16 @@
+<div class="bathroom-tile side-borders top-border bottom-border width-100">
+    <img class="toilet-pic width-40" ng-src="{{ bathroom.picture }}" alt="Pretty toilet"/>
+    <span class="info-container width-55 right">
+        <div class="text-black width-100 text-center">{{ bathroom.name }}</div>
+        <div class="status-tag available width-100 text-center text-white" ng-if="bathroom.available">Available</div>
+        <div class="status-tag unavailable width-100 text-center text-white" ng-if="!bathroom.available">Occupied</div>
+        <div class="text-center text-black text-large" ng-if="bathroom.available">Your kingdom awaits</div>
+        <form name="phoneForm" class="phone-form width-100" ng-submit="submitPhoneNumber($event)" ng-show="!bathroom.available">
+            <div class="alert error width-100 text-center" ng-if="errorMessage">{{ errorMessage }}</div>
+            <div class="alert success width-100 text-center" ng-if="successMessage">{{ successMessage }}</div>
+            <label name="phoneNumber" class="width-100 text-center" ng-if="!successMessage && !errorMessage">Enter Your Phone Number</label>
+            <input name="phoneNumber" class="width-100 standard" phone-number ng-model="phoneNumber" type="tel" placeholder="(999) 999-9999"/>
+            <button class="width-100 submit-btn">Text me when the throne has been abdicated</button>
+        </form>
+    </span>
+</div>
