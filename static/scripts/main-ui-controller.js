@@ -1,5 +1,5 @@
 angular.module('throne').controller('MainUiController', ['$scope', 'BathroomService', 'BathroomModel', '$interval',
-function($scope, BathroomService, BathroomModel, $timeout) {
+function($scope, BathroomService, BathroomModel, $interval) {
     var pollBathrooms = function() {
         BathroomService.getAllBathrooms()
             .then(function(data) {
