@@ -8,5 +8,5 @@ function($scope, BathroomService, BathroomModel, $timeout) {
     };
 
     pollBathrooms();
-    // $timeout(pollBathrooms, 5000);
+    $timeout(pollBathrooms, 3000);
 }]);
