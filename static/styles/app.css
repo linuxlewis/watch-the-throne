@@ -149,21 +149,39 @@ a.text-white:active {
     float: left;
 }
 
-.width-40, .width-60, .width-100 {
+.width-40, .width-60, .width-100, .mobile-width-100 {
     display: inline-block;
 }
 
 .width-40 {
-    display: inline-block;
     width: 40%;
 }
 
 .width-55 {
-    display: inline-block;
     width: 55%;
 }
 
 .width-100 {
-    display: inline-block;
     width: 100%;
+}
+
+@media screen and (max-width: 1023px) {
+    .header-text {
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 719px) {
+    .mobile-width-100 {
+        width: 100%;
+    }
+
+    .scrollable-container {
+        padding: 0 20px;
+    }
+
+    .text-large {
+        line-height: 20px;
+        padding: 24px 0;
+    }
 }

@@ -43,3 +43,23 @@ button.submit-btn {
 .phone-form {
     margin-top: 10px;
 }
+
+@media screen and (max-width: 719px) {
+    .status-tag {
+        padding: 15px;
+        margin: 0;
+    }
+
+    input.standard {
+        margin: 10px 0;
+    }
+
+    .bathroom-tile {
+        padding: 15px;
+        margin: 10px 0;
+    }
+
+    .bathroom-name {
+        margin: 5px 0;
+    }
+}
