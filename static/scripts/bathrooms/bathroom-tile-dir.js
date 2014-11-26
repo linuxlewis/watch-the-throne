@@ -29,6 +29,11 @@ angular.module('BathroomsMod')
                     scope.errorMessage = "Please enter a valid 10-digit phone number";
                 }
             };
+
+            scope.$watch('bathroom.available', function() {
+                scope.errorMessage = null;
+                scope.successMessage = null;
+            });
         }
     };
 }]);
