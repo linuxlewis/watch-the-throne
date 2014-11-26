@@ -5,7 +5,7 @@
         <div class="status-tag available width-100 text-center text-white" ng-if="bathroom.available">Available</div>
         <div class="status-tag unavailable width-100 text-center text-white" ng-if="!bathroom.available">Occupied</div>
         <div class="text-center text-black text-large width-100" ng-if="bathroom.available">Your kingdom awaits</div>
-        <div class="text-center text-black text-large width-100" ng-if="successMessage">{{ successMessage }}</div>
+        <div class="text-center text-black text-large width-100" ng-if="successMessage && !bathroom.available">{{ successMessage }}</div>
         <form name="phoneForm" class="phone-form width-100" ng-submit="submitPhoneNumber($event)" ng-show="!bathroom.available">
             <div class="alert error width-100 text-center" ng-if="errorMessage">{{ errorMessage }}</div>
             <label name="phoneNumber" class="width-100 text-center" ng-if="!successMessage && !errorMessage">Enter Your Phone Number</label>
